@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docx-Sign</title>
+
+     <!----======== CSS ======== -->
+     <link rel="stylesheet" href="../asstes/css/dashboard.css">
+     
+     <!----===== Iconscout CSS ===== -->
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+     <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20+Charted&family=Nanum+Gothic&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <!-- <div class="logo-image">
+                <img src="../asstes/img/icon.png" alt="">
+            </div> -->
+
+            <a href="index.html" class="logo_name">Docx<span>Sign</span></a>
+
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li>
+                    <a href="#">
+                        <i class="uil uil-estate"></i>
+                        <span class="link-name">Tools</span>
+                    </a>
+                    <ul class="sub-menu" id="sub-tools">
+                        <li><a href="#"><i class="fas fa-signature"></i> Signature</a></li>
+                        <li><a href="#"><i class="fas fa-stamp"></i> Stamp</a></li>
+                        <!-- <li><a href="#"><i class="fas fa-insert"></i> Insert</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="main.html">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Back</span> 
+                </a></li>
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Logout</span>
+                </a></li>
+<!-- 
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a> -->
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+            <img src="images/profile.jpg" alt="">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Edit Document</span>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="pdf-container">
+                    <div id="pdf-viewer" class="pdf-viewer-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        // Get the filename from the URL query parameter
+        const params = new URLSearchParams(window.location.search);
+        const filename = params.get('filename');
+    
+        // Create a PDF object and load the PDF file
+        const pdfViewer = document.getElementById('pdf-viewer');
+        const embedElement = document.createElement('embed');
+        embedElement.src = `uploads/${filename}`;
+        embedElement.type = 'application/pdf';
+        embedElement.width = '100%';
+        embedElement.height = '600px';
+    
+        // Append the PDF viewer to the page
+        pdfViewer.appendChild(embedElement);
+    
+        // Toggle sub-tools visibility
+        document.getElementById('tools').addEventListener('click', function() {
+            const subTools = document.getElementById('sub-tools');
+            if (subTools.style.display === 'none') {
+                subTools.style.display = 'block';
+            } else {
+                subTools.style.display = 'none';
+            }
+        });
+    
+        // Automatically display the sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('check');
+            checkbox.checked = true; // Ensure the checkbox is checked
+        });
+    </script>
+    <script>
+        // Toggle sub-tools visibility
+    document.querySelector('.link-name').addEventListener('click', function() {
+    const subTools = document.getElementById('sub-tools');
+    if (subTools.style.display === 'none' || !subTools.style.display) {
+        subTools.style.display = 'block';
+    } else {
+        subTools.style.display = 'none';
+    }
+});
+    </script>
+    <script src="../asstes/js/dashboard.js"></script>
+
+</body>
+</html>

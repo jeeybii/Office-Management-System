@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docx-Sign</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../asstes/css/main-page.css">
+    <!-- ===== Boxicons CSS ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20+Charted&family=Nanum+Gothic&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- nav -->
+
+
+    <!-- content -->
+    <div class="file-upload">
+        <div class="upload-container">
+            <!-- Remove the input element from here -->
+            <label for="fileElem" id="drop-area" class="drop-area" onclick="clickUpload()" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" ondrop="dropHandler(event);">
+                <div class="upload-content">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 2a1 1 0 00-.993.883L9 3v6.268l1.33-1.33a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.32.083l-.094-.083-3-3a1 1 0 111.414-1.414L7 9.267V3a1 1 0 00-.883-.993L6 2h4zM3 11a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm1 4a1 1 0 100 2h12a1 1 0 100-2H4z" clip-rule="evenodd" />
+                    </svg>
+                    <h3 class="upload-title">
+                        <span>Add document</span>
+                    </h3>
+                    <span class="upload-message">Click or drag and drop files here (PDF or Word document only)</span>
+                </div>
+            </label>
+            <!-- Move the input element here -->
+            <input type="file" id="fileElem" class="hidden" accept=".pdf,.doc,.docx" onchange="handleFiles(this.files)">
+        </div>
+    </div>
+    
+
+    <div class="document-list">
+        <h3 class="document-heading">Document</h3>
+        <div class="document-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-file-alt"></i> Title</th>
+                        <th><i class="fas fa-tags"></i> Type</th>
+                        <th><i class="far fa-calendar-alt"></i> Date</th>
+                        <th><i class="fas fa-cogs"></i> Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sample Title</td>
+                        <td>Sample Type</td>
+                        <td>2024-04-26</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sample Title</td>
+                        <td>Sample Type</td>
+                        <td>2024-04-26</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sample Title</td>
+                        <td>Sample Type</td>
+                        <td>2024-04-26</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows here if needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../asstes/js/script.js"></script>
+    <script>
+        // Retrieve mode from localStorage
+        let getMode = localStorage.getItem("mode");
+        if(getMode && getMode === "dark-mode"){
+            document.body.classList.add("dark");
+        }
+    </script>
+        
+
+</body>
+</html>
